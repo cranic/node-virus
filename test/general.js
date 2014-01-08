@@ -16,6 +16,7 @@ describe('General testing', function(){
                     throw err;
 
                 assert.ok(stdout.indexOf('Eicar-Test-Signature FOUND') !== -1);
+                done();
             });
         });
     });
