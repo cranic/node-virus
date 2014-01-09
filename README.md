@@ -1,4 +1,4 @@
-#### [![Build Status](https://travis-ci.org/cranic/node-virus.png)](https://travis-ci.org/cranic/node-virus) ![Dependencies Status](https://david-dm.org/cranic/node-virus.png) [![Gittip](http://img.shields.io/gittip/cranic.png)](https://www.gittip.com/cranic)
+[![Build Status](https://travis-ci.org/cranic/node-virus.png)](https://travis-ci.org/cranic/node-virus) [![Dependencies Status](https://david-dm.org/cranic/node-virus.png)](https://david-dm.org/cranic/node-virus) [![Gittip](http://img.shields.io/gittip/cranic.png)](https://www.gittip.com/cranic)
 
 [![NPM Status](https://nodei.co/npm/virus.png?downloads=true)](http://npmjs.org/package/virus)
 
