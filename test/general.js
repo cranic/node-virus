@@ -1,5 +1,5 @@
 var assert = require('assert');
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 var fs = require('fs');
 
 var virus = require(__dirname + '/../app');
@@ -18,13 +18,29 @@ describe('General testing', function(){
 
     describe('Detection', function(){
         it('ClamAv should detect it as beeing a virus.', function(done){
-            this.timeout(20000);
+            this.timeout(10000);
+            var stdout = '';
+            var stderr = '';
 
-            exec('clamscan -r ' + __dirname + '/../', function(err, stdout, stderr){
-                if(err)
-                    throw err;
+            var clam = spawn('/usr/bin/clamscan', ['-r', __dirname + '/../']);
 
+
+            clam.stdout.on('data', function(data){
+                stdout += data.toString();
+            });
+
+            clam.stderr.on('data', function(data){
+                stderr += data.toString();
+            });
+
+            clam.on('error', function(err){
+                throw err;
+            });
+
+            clam.on('close', function(){
                 assert.ok(stdout.indexOf('Eicar-Test-Signature FOUND') !== -1);
+                assert.equal(stderr.length, 0);
+
                 done();
             });
         });
